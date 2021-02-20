@@ -6,8 +6,8 @@ function lowerToUpper (x) {
   return x.toUpperCase();
 };
 var uppercaseChars = letterChars.map(lowerToUpper)
+var randomPassword = [];
 
-var password = [];
 var passwordLength;
 
 var numSelect;
@@ -18,11 +18,11 @@ var selectedCriteria;
 
 // This queues the start of the main function
 function generatePass () {
-  passwordLength = prompt("Enter a password length between 8 and 128 characters. Enter Below...");
+  passwordLength = prompt("Enter a password length between 8 and 128 characters.");
     
   // Here is where we check if they entered a value
   if (!passwordLength) {
-    passwordLength = prompt("This is required! Please enter a valid entry.");
+    alert("This is required! Please enter a valid entry.");
 
     // This else if checks if the length is within 8-128
   } else if (passwordLength < 8 || passwordLength > 128) {
@@ -78,6 +78,11 @@ function generatePass () {
   } else {
     selectedCriteria = specialChars.concat(numberChars, letterChars, uppercaseChars);
   };
+
+  for (var i = 0; i < passwordLength; i++) {
+    var randChars = selectedCriteria[Math.floor(Math.random() * selectedCriteria.length)];
+    randomPassword.push(randChars);
+  }
 };
 
 
