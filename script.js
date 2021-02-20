@@ -1,12 +1,7 @@
 var specialChars = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "`", "[", "]", "{", "}", "\\", ":", ";", "'", "\"", "<", ">", ",", ".", "/", "?"];
 var numberChars = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var letterChars = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
-// This function converts lower case into upper case
-function lowerToUpper (x) {
-  return x.toUpperCase();
-};
-var uppercaseChars = letterChars.map(lowerToUpper)
-var randomPassword = [];
+var uppercaseChars = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
 
 var passwordLength;
 
@@ -16,13 +11,15 @@ var uppercaseSelect;
 var specialSelect;
 var selectedCriteria;
 
+var randomPassword = [];
+
 // This queues the start of the main function
 function generatePass () {
   passwordLength = prompt("Enter a password length between 8 and 128 characters.");
     
   // Here is where we check if they entered a value
   if (!passwordLength) {
-    alert("This is required! Please enter a valid entry.");
+    alert("This is required!");
 
     // This else if checks if the length is within 8-128
   } else if (passwordLength < 8 || passwordLength > 128) {
@@ -31,8 +28,8 @@ function generatePass () {
   } else {
       numselect = confirm("Do you need numbers?");
       lowercaseSelect = confirm("Do you need lowercase letters?");
-      uppercaseSelect = confirm("What about upper case letters also?");
-      specialSelect = confirm("And do you need special characters?");
+      uppercaseSelect = confirm("Do you need upper case letters also?");
+      specialSelect = confirm("Do you need special characters?");
   };
 
   // singular cases
@@ -43,7 +40,7 @@ function generatePass () {
   } else if (lowercaseSelect) {
     selectedCriteria = letterChars;
   } else if (uppercaseSelect) {
-    selectedCriteria = capitalCase.concat(uppercaseChars);
+    selectedCriteria = uppercaseChars;
   
     // paired cases
   } else if (specialSelect && numSelect) {
@@ -69,7 +66,7 @@ function generatePass () {
   } else if (numSelect && lowercaseSelect && uppercaseSelect) {
     selectedCriteria = numberChars.concat(letterChars, uppercaseChars);
   
-    // This throws an error when they select none 
+    // This throws an alert when they select none 
     // of the criterion for password character selection
   } else if (!numSelect && !lowercaseSelect && !uppercaseSelect && !specialSelect) {
     alert("You must select at least one of the criterion.")
@@ -79,10 +76,13 @@ function generatePass () {
     selectedCriteria = specialChars.concat(numberChars, letterChars, uppercaseChars);
   };
 
+  // Here is the for loop that loops through the concatenated array of 
   for (var i = 0; i < passwordLength; i++) {
     var randChars = selectedCriteria[Math.floor(Math.random() * selectedCriteria.length)];
     randomPassword.push(randChars);
   }
+  var pass = randomPassword.join("");
+  return pass;
 };
 
 
