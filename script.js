@@ -6,6 +6,7 @@ var uppercaseChars = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S"
 // This marks the user entered length of their choice
 var passwordLength;
 
+// These are the variables holding the boolean values of the selected options for a password
 var numSelect;
 var lowercaseSelect;
 var uppercaseSelect;
@@ -33,45 +34,29 @@ function writePassword() {
 
 // This queues the start of the main function
 function generatePassword () {
+  
   passwordLength = prompt("Enter a password length between 8 and 128 characters.");
+  passwordLength = parseInt(passwordLength);
     
   // Here is where we check if they entered a value
   if (!passwordLength) {
-    alert("This is required!");
+    alert("Please enter a correct value to continue");
 
     // This else if checks if the length is within 8-128
   } else if (passwordLength < 8 || passwordLength > 128) {
-      passwordLength = prompt("Please enter a length between 8 and 128 characters");
-      
-  } else {
+      alert("Please enter a length between 8 and 128 characters");
+
+    // These appear as prompts, to which the user can confirm or deny whether or not 
+    // they want special characters, numbers, lowercase, and/or uppercase numbers
+  }else {
       specialSelect = confirm("Would you like special characters?");
       lowercaseSelect = confirm("Would you like lowercase letters?");
       uppercaseSelect = confirm("Would you like upper case letters also?");
       numSelect = confirm("Would you like numbers?");
+
+      criteriaAlert();
   };
 
-  console.log(specialSelect);
-  console.log(lowercaseSelect);
-  console.log(uppercaseSelect);
-  console.log(numSelect);
-
-
-  // singular cases
-  if (specialSelect) {
-     selectedCriteria = selectedCriteria.concat(specialChars);
-  };  
-  if (numSelect) {
-    selectedCriteria = selectedCriteria.concat(numberChars);
-  }; 
-  if (lowercaseSelect) {
-    selectedCriteria = selectedCriteria.concat(letterChars);
-  }; 
-  if (uppercaseSelect) {
-    selectedCriteria = selectedCriteria.concat(uppercaseChars);
-  };
-
-  console.log(selectedCriteria);
-    
   //-------------------------------------------------------------------------------------
 
   // Here is the for loop that loops through the concatenated array of selected criterion
@@ -84,4 +69,22 @@ function generatePassword () {
   return pass;
 };
 
+function criteriaAlert() {
+  // These if statements test what criteria the user selected
+  if (specialSelect) {
+    selectedCriteria = selectedCriteria.concat(specialChars);
+ };  
+ if (numSelect) {
+   selectedCriteria = selectedCriteria.concat(numberChars);
+ }; 
+ if (lowercaseSelect) {
+   selectedCriteria = selectedCriteria.concat(letterChars);
+ }; 
+ if (uppercaseSelect) {
+   selectedCriteria = selectedCriteria.concat(uppercaseChars);
+ };
 
+ if (!specialSelect && !numSelect && !lowercaseSelect && !uppercaseSelect) {
+   alert("You must select at least one of the provided criteria")
+ };
+};
