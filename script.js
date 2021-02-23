@@ -42,10 +42,12 @@ function generatePassword () {
   // Here is where we check if they entered a value
   if (!passwordLength) {
     alert("Please enter a correct value to continue");
+    randomPassword = [];
 
     // This else if checks if the length is within 8-128
   } else if (passwordLength < 8 || passwordLength > 128) {
-      alert("Please enter a length between 8 and 128 characters");
+      alert("Please enter a length between 8 and 128 characters for a new password.");
+      randomPassword = [];
 
     // These appear as prompts, to which the user can confirm or deny whether or not 
     // they want special characters, numbers, lowercase, and/or uppercase numbers
