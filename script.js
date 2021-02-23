@@ -30,6 +30,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  randomPassword = [];
 }
 
 // This queues the start of the main function
