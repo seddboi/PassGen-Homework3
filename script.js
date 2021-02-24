@@ -66,7 +66,7 @@ function generatePassword () {
   for (var i = 0; i < passwordLength; i++) {
     var randChars = selectedCriteria[Math.floor(Math.random() * selectedCriteria.length)];
     randomPassword.push(randChars);
-  }
+  };
   // this converts the new array of random characters into a string
   var pass = randomPassword.join("");
   return pass;
