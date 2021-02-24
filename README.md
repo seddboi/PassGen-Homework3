@@ -18,4 +18,4 @@ Another series of if statements followed, which concatenated an empty array (sel
 Also within the generatePassword function, I established a for loop, which looped through the selectedCriteria array. Within this for loop, I established the randomization method, which was solely utilization of the Math.Random method and Math.Floor, where Math.random was multiplied by the length of selectedCriteria (to get a whole random number index within the array instead of a number within 0 to 1 which is what Math.random defaults to). This method was then told to take said random index, take the character within the place of said index, and push it to another empty array, randomPassword. I then converted the new array randomPassword into a string, to be easily printed in the output of the program.
 
 ## Sample Viewing of the Project
-![]()
+![](https://github.com/seddboi/Random-Password-Creator/blob/main/Untitled_%20Feb%2024%2C%202021%2012_44%20AM.gif)
