@@ -1,4 +1,4 @@
-# PassGen-Homework3
+# Random Password Generator
 
 ## Introduction
 The Password Generator was a refactor project, to which we were only given the template of the Generator within the HTML and the CSS file. The design was fully set up, and we were intended to develop the Javascript File, which allowwed the Generator to function properly. To some extent, the project posed a great challenge, yet I was successful in establishing a viable way of creating a Password Generator which allowed for the user's choice of criteria and their choice of password length.
@@ -18,3 +18,4 @@ Another series of if statements followed, which concatenated an empty array (sel
 Also within the generatePassword function, I established a for loop, which looped through the selectedCriteria array. Within this for loop, I established the randomization method, which was solely utilization of the Math.Random method and Math.Floor, where Math.random was multiplied by the length of selectedCriteria (to get a whole random number index within the array instead of a number within 0 to 1 which is what Math.random defaults to). This method was then told to take said random index, take the character within the place of said index, and push it to another empty array, randomPassword. I then converted the new array randomPassword into a string, to be easily printed in the output of the program.
 
 ## Sample Viewing of the Project
+![](Untitled_ Feb 24, 2021 12_27 AM.gif)

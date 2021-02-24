@@ -35,6 +35,7 @@ function writePassword() {
 
 // This queues the start of the main function
 function generatePassword () {
+  selectedCriteria = [];
   
   passwordLength = prompt("Enter a password length between 8 and 128 characters.");
   passwordLength = parseInt(passwordLength);
@@ -76,15 +77,23 @@ function criteriaAlert() {
   // These if statements test what criteria the user selected
   if (specialSelect) {
     selectedCriteria = selectedCriteria.concat(specialChars);
+    randomPassword = [];
+
  };  
  if (numSelect) {
    selectedCriteria = selectedCriteria.concat(numberChars);
+   randomPassword = [];
+
  }; 
  if (lowercaseSelect) {
    selectedCriteria = selectedCriteria.concat(letterChars);
+   randomPassword = [];
+
  }; 
  if (uppercaseSelect) {
    selectedCriteria = selectedCriteria.concat(uppercaseChars);
+   randomPassword = [];
+
  };
 
  if (!specialSelect && !numSelect && !lowercaseSelect && !uppercaseSelect) {
